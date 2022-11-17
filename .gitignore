@@ -13,4 +13,3 @@ dist
 .history
 .vite
 *.yaml
-*.conf
