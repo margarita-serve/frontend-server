@@ -1,0 +1,10 @@
+{
+  // https://v3.nuxtjs.org/concepts/typescript
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    //"strictNullChecks": true
+    // "typeRoots" : ["./@types", "./node_modules/@types"],
+    // "target": "esnext",
+    // "lib": [ "ES2021.String" ],
+  }
+}
