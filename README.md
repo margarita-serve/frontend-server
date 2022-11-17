@@ -37,13 +37,17 @@
   - Login
     - ![JWT](https://img.shields.io/badge/JWT-black?style=plastic&logo=JSON%20web%20tokens)
     - Login시에 BackEnd에 요청하고 JWT 토큰을 가져와 Session Storege에 저장한다.
+
       ![login](readmeFile/login.png)
 
   - [DataTable](https://www.primefaces.org/primevue/datatable)
     - Filter, Sort, Column selete, Paginator
     - Active, InActive 여부에 따라 다르게 표시
+
       ![deployments](readmeFile/deployments.png)
+
       ![deploymentsColumn](readmeFile/ColumSelect.png)
+
       ![deploymentsDetail](readmeFile/Detail.png)
 
   - Save Setting
@@ -51,20 +55,24 @@
 
   - Status View
     - Good, Failing, Atrisk, Error 별로 현재 상태를 다르게 표시
+
     ![CurrentStatus](readmeFile/CurrentStatus.png)
 
   - [FileUpload](https://www.primefaces.org/primevue/fileupload)
     - Dropdown
     - BackEnd Server로 해당 파일을 보낸 후 ProgressSpiner를 표현한 후 응답에 따른 Toast Msg 표시
+
     ![FileUpload](readmeFile/FileUpload.png)
 
   - [Breadcrumb](https://www.primefaces.org/primevue/breadcrumb)
     - 경로 표시 및 클릭 시 해당 경로로 이동
+
       ![Breadcrumb](readmeFile/Breadcrumb.png)
 
   - Graph
     - 원하는 날짜에 따라서 조회가 가능하고 최소 날짜, 최대 날짜가 정해져 있다.
     - 해당하는 모델에 따라서 날짜가 변경된다.
+
     ![ServiceStatus](readmeFile/ServiceStatus.png)
 
 ---
