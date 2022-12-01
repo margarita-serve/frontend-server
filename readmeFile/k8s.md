@@ -84,7 +84,7 @@
         location ^~ /api {
           proxy_pass [proxy_pass 할 주소];
           proxy_http_version 1.1;
-          proxy_set_header Host [Host 명];
+          proxy_set_header Host $http_host;
 
           proxy_set_header Upgrade $http_upgrade;
           proxy_set_header Connection "upgrade";

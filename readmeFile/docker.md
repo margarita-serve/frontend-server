@@ -27,7 +27,7 @@
           location ^~ /api {
             proxy_pass [backend dns or ip]
             proxy_http_version 1.1;
-            proxy_set_header Host $host;
+            proxy_set_header Host $http_host;
 
             proxy_set_header Upgrade $http_upgrade;
             proxy_set_header Connection "upgrade";

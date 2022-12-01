@@ -17,7 +17,6 @@
     - [프로젝트 정보](#프로젝트-정보)
       - [실행방법](#실행방법)
       - [기술스택](#기술스택)
-      - [예상 Error](#예상-error)
       - [LICENSE](#license)
 
 ### 프로젝트 정보
@@ -74,13 +73,6 @@
     - 해당하는 모델에 따라서 날짜가 변경된다.
 
     ![ServiceStatus](readmeFile/ServiceStatus.png)
-
----
-
-#### 예상 Error
-
-- mixed content error
-  - http, https간 통신의 에러가 발생할 수 있다. 해당 에러 발생시 nuxt.config.ts의 meta 부분에 Mixed Content Error 주석 부분을 해제해준다.
 
 ---
 

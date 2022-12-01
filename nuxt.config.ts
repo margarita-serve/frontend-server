@@ -64,7 +64,7 @@ export default defineNuxtConfig({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "description", content: process.env.npm_package_description || "", hid: "description" },
       // Mixed Content Error
-      { "http-equiv": "content-security-policy", content: "upgrade-insecure-requests" },
+      // { "http-equiv": "content-security-policy", content: "upgrade-insecure-requests" },
     ],
     link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
     // bodyAttrs: {
