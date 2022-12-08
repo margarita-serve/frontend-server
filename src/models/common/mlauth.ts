@@ -31,7 +31,8 @@ export const MLLoginValidation = {
     },
     password: {
         required,
-        minLength: minLength(6),
+        // PasswordRequirement,
+        // minLength: minLength(6),
     }
 }
 
