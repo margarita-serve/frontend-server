@@ -45,17 +45,20 @@ const dataDriftEmitsFun = {
 
   Details: async (deployID: string, selectmodel: string, graphStartTime: string, graphEndTime: string) => {
     const urlObject = await useAllService().graphCollet.getGraphDetail(deployID, selectmodel, graphStartTime, graphEndTime);
-    document.getElementById('framesDetail').setAttribute("src", urlObject);
+    useAllService().graphCollet.iframeDoc(urlObject, "framesDetail");
+    // document.getElementById('framesDetail').setAttribute("src", urlObject);
   },
 
   Drift: async (deployID: string, selectmodel: string, graphStartTime: string, graphEndTime: string) => {
-    const graphDrift = await useAllService().graphCollet.getGraphDrift(deployID, selectmodel, graphStartTime, graphEndTime);
-    document.getElementById('framesDrift').setAttribute("src", graphDrift);
+    const urlObject = await useAllService().graphCollet.getGraphDrift(deployID, selectmodel, graphStartTime, graphEndTime);
+    useAllService().graphCollet.iframeDoc(urlObject, "framesDrift");
+    // document.getElementById('framesDrift').setAttribute("src", graphDrift);
   },
 
   Predict: async (deployID: string, selectmodel: string, graphStartTime: string, graphEndTime: string) => {
-    const graphPredictOverTime = await useAllService().graphCollet.getGraphPredictOverTime(deployID, selectmodel, graphStartTime, graphEndTime);
-    document.getElementById('framesPredict').setAttribute("src", graphPredictOverTime);
+    const urlObject = await useAllService().graphCollet.getGraphPredictOverTime(deployID, selectmodel, graphStartTime, graphEndTime);
+    useAllService().graphCollet.iframeDoc(urlObject, "framesPredict");
+    // document.getElementById('framesPredict').setAttribute("src", graphPredictOverTime);
   },
 }
 const sendFromChild = ref();

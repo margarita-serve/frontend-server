@@ -434,12 +434,13 @@ export function useAllService(options: any = {}) {
         if (res.isError) {
           UI.showToastMessage(MessageTypes.ERROR, "Fetch Detail Graph", res.message);
         } else {
-          detail = res.data;
+          detail = res?.data;
         }
       });
-      const blob = new Blob([detail], { type: "text/html", endings: "native" });
-      const urlObject = URL.createObjectURL(blob);
-      return urlObject;
+      // const blob = new Blob([detail], { type: "text/html", endings: "native" });
+      // const urlObject = URL.createObjectURL(blob);
+      // return urlObject;
+      return detail;
     },
 
     /**
@@ -457,12 +458,13 @@ export function useAllService(options: any = {}) {
         if (res.isError) {
           UI.showToastMessage(MessageTypes.ERROR, "Fetch Drift Graph", res.message);
         } else {
-          drift = res.data;
+          drift = res?.data;
         }
       });
-      const blob = new Blob([drift], { type: "text/html", endings: "native" });
-      const urlObject = URL.createObjectURL(blob);
-      return urlObject;
+      // const blob = new Blob([drift], { type: "text/html", endings: "native" });
+      // const urlObject = URL.createObjectURL(blob);
+      // return urlObject;
+      return drift;
     },
 
     /**
@@ -481,12 +483,13 @@ export function useAllService(options: any = {}) {
         if (res.isError) {
           UI.showToastMessage(MessageTypes.ERROR, "Fetch AccuracyOver Graph", res.message);
         } else {
-          accOver = res.data;
+          accOver = res?.data;
         }
       });
-      const blob = new Blob([accOver], { type: "text/html", endings: "native" });
-      const urlObject = URL.createObjectURL(blob);
-      return urlObject;
+      // const blob = new Blob([accOver], { type: "text/html", endings: "native" });
+      // const urlObject = URL.createObjectURL(blob);
+      // return urlObject;
+      return accOver;
     },
 
     /**
@@ -505,12 +508,13 @@ export function useAllService(options: any = {}) {
         if (res.isError) {
           UI.showToastMessage(MessageTypes.ERROR, "Fetch Predict Actual Graph", res.message);
         } else {
-          predictAct = res.data;
+          predictAct = res?.data;
         }
       });
-      const blob = new Blob([predictAct], { type: "text/html", endings: "native" });
-      const urlObject = URL.createObjectURL(blob);
-      return urlObject;
+      // const blob = new Blob([predictAct], { type: "text/html", endings: "native" });
+      // const urlObject = URL.createObjectURL(blob);
+      // return urlObject;
+      return predictAct;
     },
 
     /**
@@ -529,12 +533,13 @@ export function useAllService(options: any = {}) {
         if (res.isError) {
           UI.showToastMessage(MessageTypes.ERROR, "Fetch Predict Over Graph", res.message);
         } else {
-          predictOverTime = res.data;
+          predictOverTime = res?.data;
         }
       });
-      const blob = new Blob([predictOverTime], { type: "text/html", endings: "native" });
-      const urlObject = URL.createObjectURL(blob);
-      return urlObject;
+      // const blob = new Blob([predictOverTime], { type: "text/html", endings: "native" });
+      // const urlObject = URL.createObjectURL(blob);
+      // return urlObject;
+      return predictOverTime;
     },
 
     /**
@@ -553,12 +558,13 @@ export function useAllService(options: any = {}) {
         if (res.isError) {
           UI.showToastMessage(MessageTypes.ERROR, "Fetch Service Graph", res.message);
         } else {
-          service = res.data;
+          service = res?.data;
         }
       });
-      const blob = new Blob([service], { type: "text/html", endings: "native" });
-      const urlObject = URL.createObjectURL(blob);
-      return urlObject;
+      // const blob = new Blob([service], { type: "text/html", endings: "native" });
+      // const urlObject = URL.createObjectURL(blob);
+      // return urlObject;
+      return service;
     },
 
     /**
@@ -575,13 +581,14 @@ export function useAllService(options: any = {}) {
         if (res.isError) {
           UI.showToastMessage(MessageTypes.ERROR, "Fetch Cpu Resource", res.message);
         } else {
-          cpu = res.data;
+          cpu = res?.data;
         }
       });
 
-      const blob = new Blob([cpu], { type: "text/html", endings: "native" });
-      const urlObject = URL.createObjectURL(blob);
-      return urlObject;
+      // const blob = new Blob([cpu], { type: "text/html", endings: "native" });
+      // const urlObject = URL.createObjectURL(blob);
+      // return urlObject;
+      return cpu;
     },
 
     /**
@@ -598,14 +605,32 @@ export function useAllService(options: any = {}) {
         if (res.isError) {
           UI.showToastMessage(MessageTypes.ERROR, "Fetch Memory Resource", res.message);
         } else {
-          mem = res.data;
+          mem = res?.data;
         }
       });
 
-      const blob = new Blob([mem], { type: "text/html", endings: "native" });
-      const urlObject = URL.createObjectURL(blob);
-      return urlObject;
+      // const blob = new Blob([mem], { type: "text/html", endings: "native" });
+      // const urlObject = URL.createObjectURL(blob);
+      // return urlObject;
+      return mem;
     },
+
+    /**
+     * clear iframe mixed content error
+     * @param htmlCode htmlCode
+     * @param iframeID iframeID
+     */
+    iframeDoc: (htmlCode: string, iframeID: string) => {
+      let iframeDoc = document.getElementById(iframeID)?.contentWindow?.document;
+      // let meta = iframeDoc.createElement('meta');
+      // meta.name = 'viewport';
+      // meta.content = "upgrade-insecure-requests";
+      // meta.httpequiv = "Content-Security-Policy";
+      // iframeDoc.getElementsByTagName('head')[0]?.appendChild(meta);
+      iframeDoc?.open('text/html', 'replace');
+      iframeDoc?.write(htmlCode);
+      iframeDoc?.close();
+    }
   };
 
   /**

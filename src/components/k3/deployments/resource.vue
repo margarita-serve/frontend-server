@@ -31,12 +31,14 @@ const dataDriftEmitsFun = ref({
 
   ResourceCPU: async (deployID: string, requestCPU: number) => {
     const urlObject = await useAllService().graphCollet.getGraphCPU(String(deployID), requestCPU);
-    document.getElementById('cpuResource').setAttribute("src", urlObject);
+    useAllService().graphCollet.iframeDoc(urlObject, "cpuResource");
+    // document.getElementById('cpuResource').setAttribute("src", urlObject);
   },
 
   ResourceMemory: async (deployID: string, requestMEM: number) => {
     const urlObject = await useAllService().graphCollet.getGraphMemory(String(deployID), requestMEM);
-    document.getElementById('memoryResource').setAttribute("src", urlObject);
+    useAllService().graphCollet.iframeDoc(urlObject, "memoryResource");
+    // document.getElementById('memoryResource').setAttribute("src", urlObject);
   },
 });
 const sendFromChild = ref();

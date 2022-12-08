@@ -53,7 +53,7 @@ const onLogin = async () => {
     auth.value = await MLAuths.login(login.value);
     if (auth?.value?.isAuthenticated) {
       UI.showToastMessage(MessageTypes.INFO, "로그인", `로그인 처리 되었습니다.`);
-      Routing.moveTo('/deployments');
+      Routing?.moveTo('/deployments');
     }
   } else {
     UI.showToastMessage(MessageTypes.WARN, "로그인", `로그인 서버에 문제가 있습니다.`);

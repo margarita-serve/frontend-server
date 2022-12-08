@@ -8,7 +8,7 @@
       <template v-slot:graph>
         <div class="flex flex-column">
           <div class="flex bg-white border-1 hover:border-blue-500" style="width: 110rem; height: 35rem;">
-            <iframe v-if="sendFromChild?.exposeValue?.graphSkeleton === false" id="serviceGraph" src="" frameborder="0" width="100%" height="100%"
+            <iframe v-if="sendFromChild?.exposeValue?.graphSkeleton === false" id="serviceGraph" srcdoc="" frameborder="0" width="100%" height="100%"
               scrolling="auto" />
             <K3Skeleton v-else width="100%" height="100%" />
           </div>
@@ -24,10 +24,12 @@ const dataDriftEmitsFun = {
   TabName: "service-status",
 
   GraphService: async (deployID: string, selectmodel: string, graphStartTime: string, graphEndTime: string) => {
-    const graphService = await useAllService().graphCollet.getGraphService(deployID, selectmodel, graphStartTime, graphEndTime);
-    document.getElementById('serviceGraph').setAttribute("src", graphService);
+    const urlOject = await useAllService().graphCollet.getGraphService(deployID, selectmodel, graphStartTime, graphEndTime);
+    useAllService().graphCollet.iframeDoc(urlOject, "serviceGraph");
+    // document.getElementById('serviceGraph').setAttribute("srcdoc", graphService);
   },
 }
+
 </script>
 
 <style>

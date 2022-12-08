@@ -61,11 +61,13 @@ const dataDriftEmitsFun = ref({
   TargetMetric: targetMetricValue.value,
   GraphAccOver: async (deployID: string, selectmodel: string, graphStartTime: string, graphEndTime: string, targetMetric: string = targetMetricValue.value) => {
     const graphAccOver = await useAllService().graphCollet.getGraphAccOver(deployID, selectmodel, targetMetric, graphStartTime, graphEndTime);
-    document.getElementById('accOverTimeGraph').setAttribute("src", graphAccOver);
+    useAllService().graphCollet.iframeDoc(graphAccOver, "accOverTimeGraph");
+    // document.getElementById('accOverTimeGraph').setAttribute("src", graphAccOver);
   },
   GraphPredictAct: async (deployID: string, selectmodel: string, graphStartTime: string, graphEndTime: string) => {
     const graphPredicAct = await useAllService().graphCollet.getGraphPredictAct(deployID, selectmodel, graphStartTime, graphEndTime);
-    document.getElementById('predictActGraph').setAttribute("src", graphPredicAct);
+    useAllService().graphCollet.iframeDoc(graphPredicAct, "predictActGraph");
+    // document.getElementById('predictActGraph').setAttribute("src", graphPredicAct);
   },
   MonitorAcc: async (deployID: string, selectmodel: string, graphStartTime: string, graphEndTime: string) => {
     if (selectmodel) {
